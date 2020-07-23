@@ -1,6 +1,8 @@
 import React from "react";
 import { todoContainer } from "../api/todos";
 import IndividualTodo from "./IndividualTodo";
+import FlipMove from "react-flip-move";
+
 export default class TodoList extends React.Component {
   constructor() {
     super();
@@ -19,16 +21,18 @@ export default class TodoList extends React.Component {
     console.log(todoContainer);
     return (
       <div>
-        {this.state.list.map((val, index) => {
-          return (
-            <IndividualTodo
-              done={val.done}
-              key={index}
-              id={val._id}
-              todo={val.todo}
-            />
-          );
-        })}
+        <FlipMove>
+          {this.state.list.map((val, index) => {
+            return (
+              <IndividualTodo
+                done={val.done}
+                key={index}
+                id={val._id}
+                todo={val.todo}
+              />
+            );
+          })}
+        </FlipMove>
       </div>
     );
   }

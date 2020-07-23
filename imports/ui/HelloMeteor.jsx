@@ -17,6 +17,9 @@ export default class HelloMeteor extends Component {
   }
 
   handleClick() {
+    if (this.state.todo === "") {
+      return;
+    }
     var todo = this.state.todo;
     var done = false;
     todoContainer.insert({ todo, done }, (err, done) => {
@@ -28,10 +31,36 @@ export default class HelloMeteor extends Component {
 
   render() {
     console.log(this.state);
+    const center = {
+      textAlign: "center",
+    };
+    const input = {
+      borderRadius: "5px",
+      height: "30px",
+      width: "250px",
+      fontSize: "20px",
+      marginTop: "20px",
+    };
+    const margin = {
+      textAlign: "center",
+      marginLeft: "5px",
+      height: "35px",
+      marginBottom: "6px",
+    };
     return (
-      <div>
-        <input onChange={this.handleChange.bind(this)} ref="input" />
-        <button onClick={this.handleClick.bind(this)}>Add</button>
+      <div style={center}>
+        <input
+          style={input}
+          onChange={this.handleChange.bind(this)}
+          ref="input"
+        />
+        <button
+          style={margin}
+          className="btn btn-success"
+          onClick={this.handleClick.bind(this)}
+        >
+          Add
+        </button>
         <TodoList />
 
         <h1>{this.state.todo}</h1>

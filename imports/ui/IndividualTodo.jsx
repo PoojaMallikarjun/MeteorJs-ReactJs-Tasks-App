@@ -39,7 +39,9 @@ export default class IndividualTodo extends React.Component {
             {this.props.todo}
           </li>
         )}
-        <button onClick={this.deleteTodo.bind(this)}>X</button>
+        <button className="btn btn-danger" onClick={this.deleteTodo.bind(this)}>
+          X
+        </button>
       </div>
     );
   }
