@@ -1,2 +1,2 @@
 # MeteorJs-ReactJs-ToDo-App
-A To-Do application using MeteorJs with ReactJs
+A tasks management application using MeteorJs with ReactJs
